@@ -4,7 +4,8 @@
   "description": "momat backend with node+express",
   "main": "src/index.ts",
   "scripts": {
-    "start": "nodemon"
+    "start": "ts-node src/index.ts",
+    "dev": "nodemon"
   },
   "author": "Floyd Kim",
   "license": "MIT",
