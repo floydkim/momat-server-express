@@ -15,6 +15,11 @@
         "ignoreParameters": true
       }
     ],
-    "@typescript-eslint/no-unused-vars": "warn"
+    "@typescript-eslint/no-unused-vars": "warn",
+    "newline-before-return": "error",
+    "object-curly-spacing": 0,
+    "array-bracket-spacing": 0,
+    "computed-property-spacing": 0,
+    "curly": 0
   }
 }
