@@ -6,10 +6,9 @@
   "scripts": {
     "start": "babel-node -x '.ts' src/index.ts",
     "dev": "nodemon",
-    "type-check": "tsc --noEmit",
-    "type-check:watch": "npm run type-check --watch"
+    "build:tsc": "tsc src/index.ts --noEmit false --outDir ./dist",
+    "build:babel": "babel -o dist/index.js -x '.ts' -- src/index.ts"
   },
-  "type": "module",
   "author": "Floyd Kim",
   "license": "MIT",
   "dependencies": {
