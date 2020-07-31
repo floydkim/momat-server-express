@@ -15,6 +15,8 @@ const foo = () => {
     const arr = Object.keys(obj);
     console.log(arr, a);
     const arr2 = [1, 3, 4];
+    const [q, w, e] = arr2;
+    const { a: asdf } = obj;
 
     const obj2 = { a: 1 };
 
