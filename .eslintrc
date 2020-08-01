@@ -16,11 +16,42 @@
       }
     ],
     "@typescript-eslint/no-unused-vars": "warn",
+    "@typescript-eslint/consistent-type-definitions": ["error", "interface"],
+    "@typescript-eslint/member-delimiter-style": ["error", {
+      "multiline": {
+        "delimiter": "comma",
+        "requireLast": true
+      },
+      "singleline": {
+        "delimiter": "comma",
+        "requireLast": false
+      }
+    }],
+    "brace-style": "off",
+    "@typescript-eslint/brace-style": ["error"],
+    "@typescript-eslint/comma-spacing": ["error"],
+    "indent": "off",
+    "@typescript-eslint/indent": ["error", 4],
+
     "newline-before-return": "error",
     "object-curly-spacing": ["error", "always"],
-    "array-bracket-spacing": 0,
+    "array-bracket-spacing": ["error", "always"],
     "computed-property-spacing": 0,
     "curly": 0,
-    "space-in-parens": "error"
+    "space-in-parens": "error",
+    "key-spacing": ["error", {
+      "beforeColon": false,
+      "afterColon": true,
+      "align": "colon"
+    }],
+    "comma-spacing": ["off"],
+    "no-multi-spaces": "error",
+    "space-infix-ops": "error",
+
+    "max-len": ["error", { "code": 90 }],
+
+    "comma-dangle": ["error", "always-multiline"],
+    "arrow-parens": ["error", "as-needed"],
+    "linebreak-style": 0
   }
 }
