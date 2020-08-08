@@ -5,6 +5,7 @@
   "main": "src/index.ts",
   "scripts": {
     "start": "babel-node -x '.ts' src/index.ts",
+    "start:inspect": "babel-node -x '.ts' src/index.ts --inspect",
     "dev": "nodemon",
     "build:tsc": "tsc src/index.ts --noEmit false --outDir ./dist",
     "build:babel": "babel -o dist/index.js -x '.ts' -- src/index.ts"
