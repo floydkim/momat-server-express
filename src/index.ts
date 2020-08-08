@@ -1,11 +1,28 @@
 import express from 'express';
+import kakaoSearchKeyword from './search/place/kakaoSearchKeyword';
+
 const app = express();
 const port = 3000;
 
 app.get('/', (req: any, res: any) => res.send('Hello World!'));
 
+// fixme POST + body 로 고칠 것
+app.get('/search/place/:keyword/:lat/:lng', (req: any, res: any) => {
+    const { keyword, lat, lng } = req.params;
+    kakaoSearchKeyword(keyword, lat, lng);
+    res.send('Hello World!asdfasf');
+});
+
+app.post('/search/place', (req, res) => {
+    console.log('%creq.body', 'color:red', req.body, res);
+});
+
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`));
 
+
+
+
+// lint testing
 const foo = (arg1: any, arg2: any) => {
     const a = 'a';
     const obj = {
