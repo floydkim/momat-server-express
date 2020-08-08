@@ -1,12 +1,15 @@
 import express from 'express';
+import bodyParser from 'body-parser';
 import kakaoSearchKeyword from './search/place/kakaoSearchKeyword';
 
 const app = express();
 const port = 3000;
 
+app.use(bodyParser.json());
+
 app.get('/', (req: any, res: any) => res.send('Hello World!'));
 
-// fixme POST + body 로 고칠 것
+// fixme kakao API와 동일하게 get 사용하도록 해보자.
 app.get('/search/place/:keyword/:lat/:lng', (req: any, res: any) => {
     const { keyword, lat, lng } = req.params;
     kakaoSearchKeyword(keyword, lat, lng);
@@ -14,7 +17,11 @@ app.get('/search/place/:keyword/:lat/:lng', (req: any, res: any) => {
 });
 
 app.post('/search/place', (req, res) => {
-    console.log('%creq.body', 'color:red', req.body, res);
+    console.log('%creq.body', 'color:red', req.body);
+    const { keyword, lat, lng } = req.body;
+    // TODO 한글 keyword 검색 가능해야 함
+    kakaoSearchKeyword(keyword, lat, lng);
+    res.send('Hello World!asdfasf');
 });
 
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`));

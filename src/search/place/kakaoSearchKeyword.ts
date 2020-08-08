@@ -18,6 +18,7 @@ const kakaoSearchKeyword = async (keyword: string, lat: number, lng: number) => 
 
     try {
         const url = `/keyword.json?query=${keyword}&y=${y}&x=${x}&radius=${RADIUS}`;
+        console.log('%curl', 'color:red', url);
         const result = await AXKakao.get(url);
 
         console.log('KAKAO RESULT', result);
