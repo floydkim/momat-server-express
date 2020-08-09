@@ -16,8 +16,10 @@ const kakaoSearchKeyword = async (keyword: string, lat: number, lng: number) => 
     const x = lng || 127.06283102249932;
     const RADIUS = 2000;
 
+    const keywordEncoded = encodeURI(keyword);
+
     try {
-        const url = `/keyword.json?query=${keyword}&y=${y}&x=${x}&radius=${RADIUS}`;
+        const url = `/keyword.json?query=${keywordEncoded}&y=${y}&x=${x}&radius=${RADIUS}`;
         console.log('%curl', 'color:red', url);
         const result = await AXKakao.get(url);
 
