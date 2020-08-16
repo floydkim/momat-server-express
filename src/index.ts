@@ -9,27 +9,8 @@ app.use(bodyParser.json());
 
 app.get('/', (req: any, res: any) => res.send('Hello World!'));
 
-app.get('/search/place/:keyword/:latitude/:longitude', async (req, res) => {
-    const { keyword, latitude, longitude } = req.params;
-    try {
-        // todo: params validation 및 error handling
-        const result = await kakaoSearchKeyword(keyword, latitude, longitude).catch(e=>e);
+app.get('/search/place/:keyword/:latitude/:longitude', kakaoSearchKeyword);
 
-        if (!result) return new Error();
-
-        res.send(JSON.stringify(result.data.documents));
-    } catch (exception) {
-        console.log('%cexception', 'color:red', exception);
-        throw new Error('GET /search/place/:keyword/:latitude/:longitude ERROR');
-    }
-});
-
-// app.post('/search/place', (req, res) => {
-//     console.log('%creq.body', 'color:red', req.body);
-//     const { keyword, lat, lng } = req.body;
-//     kakaoSearchKeyword(keyword, lat, lng);
-//     res.send('Hello World!asdfasf');
-// });
 
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`));
 
