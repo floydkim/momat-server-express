@@ -33,7 +33,18 @@ const kakaoSearchKeyword: KakaoSearchKeyword = async (req, res) => {
 
         console.log('KAKAO RESULT', result);
 
-        res.send(JSON.stringify(result.data.documents)); // todo: 응답 데이터 가공
+        // todo pagination 지원
+
+        const responseBody = result.data.documents.map(item => ({
+            x                : item.x,
+            y                : item.y,
+            distance         : item.distance,
+            id               : item.id,
+            road_address_name: item.road_address_name,
+            place_name       : item.place_name,
+        }));
+
+        res.send(responseBody);
     } catch (exception) {
         // todo: error handling (kakao api 응답 에러 고려해야함)
         console.log('%cexception', 'color:red', exception);
