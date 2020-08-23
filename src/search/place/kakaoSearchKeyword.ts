@@ -25,7 +25,7 @@ const kakaoSearchKeyword: KakaoSearchKeyword = async (req, res) => {
         const y = latitude || '37.514322572335935';
         const x = longitude || '127.06283102249932';
         const RADIUS = 2000;
-        const keywordEncoded = encodeURI(keyword);
+        const keywordEncoded = encodeURIComponent(keyword);
 
         const url = `/keyword.json?query=${keywordEncoded}&y=${y}&x=${x}&radius=${RADIUS}`;
 
